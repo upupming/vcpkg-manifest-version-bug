@@ -10,6 +10,15 @@
             "version>=": "3.35.2",
             "default-features": true,
             "platform": "windows & x64"
+        },
+        {
+            "name": "opencv",
+            "version>=": "4.5.1",
+            "default-features": true,
+            "features": [
+                "cuda"
+            ],
+            "platform": "windows & x64"
         }
     ]
 }

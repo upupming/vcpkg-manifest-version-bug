@@ -73,6 +73,27 @@ jobs:
           # 14.1 is for vs2017, 14.2 is vs2019
           toolset: 14.2
           arch: ${{ matrix.arch }}
+      - name: Cache CUDA
+        id: cache-cuda
+        uses: actions/cache@v1
+        with:
+          path: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2
+          key: CUDACache-v11.2
+      # https://github.com/ptheywood/cuda-cmake-github-actions
+      - name: Install CUDA
+        env:
+          cuda: 11.2.152
+        shell: powershell
+        run: |
+          # Install CUDA via a powershell script
+          ${{ env.srcDir }}/.scripts/actions/install_cuda_windows.ps1 ${{ steps.cache-cuda.outputs.cache-hit }}
+          if ($?) {
+            # Set paths for subsequent steps, using $env:CUDA_PATH
+            echo "Adding CUDA to CUDA_PATH, CUDA_PATH_X_Y and PATH"
+            echo "CUDA_PATH=$env:CUDA_PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            echo "$env:CUDA_PATH_VX_Y=$env:CUDA_PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            echo "$env:CUDA_PATH/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          }
 
       # Restore from cache the previously built ports. If cache-miss, download and build vcpkg (aka "bootstrap vcpkg").
       - name: Restore from cache and install vcpkg

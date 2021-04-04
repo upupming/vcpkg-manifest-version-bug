@@ -6,13 +6,13 @@ on:
     types: [prereleased]
 env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-  name: vscode-qt-qml-vcpkg-template
+  name: vcpkg-manifest-version-bug
   # Disk C has 90GB free size, while disk D only has 11.3GB free disk size
   # Override github envs, for vcpkg action to work properly: https://github.com/lukka/run-vcpkg/blob/36477d05567caebad06ad53713dcbde226135205/dist/index.js#L4891
-  GITHUB_WORKSPACE: C:/vscode-qt-qml-vcpkg-template
-  BUILD_SOURCESDIRECTORY: C:/vscode-qt-qml-vcpkg-template
-  srcDir: C:/vscode-qt-qml-vcpkg-template
-  buildDir: C:/vscode-qt-qml-vcpkg-template/build
+  GITHUB_WORKSPACE: C:/vcpkg-manifest-version-bug
+  BUILD_SOURCESDIRECTORY: C:/vcpkg-manifest-version-bug
+  srcDir: C:/vcpkg-manifest-version-bug
+  buildDir: C:/vcpkg-manifest-version-bug/build
 
 jobs:
   check_commit_msg:
@@ -59,7 +59,7 @@ jobs:
         shell: powershell
         run: |
           mkdir ${{ env.srcDir }}
-          git clone --recurse-submodules https://github.com/upupming/vscode-qt-qml-vcpkg-template.git ${{ env.srcDir }}
+          git clone --recurse-submodules https://github.com/upupming/vcpkg-manifest-version-bug.git ${{ env.srcDir }}
           cd ${{ env.srcDir }}
       - name: Install Python 3.7 version
         uses: actions/setup-python@v1

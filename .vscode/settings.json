@@ -1,0 +1,26 @@
+{
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
+  "cSpell.words": ["vcpkg", "windeployqt"],
+  "files.associations": {
+    "*.lyx": "tex",
+    "*.bib": "bibtex",
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript",
+    "*.vertexshader": "glsl",
+    "*.fragmentshader": "glsl",
+    "*.in": "plaintext",
+    "qqmlapplicationengine": "cpp",
+    "qquickwindow": "cpp",
+    "qguiapplication": "cpp"
+  },
+  "cmake.configureOnOpen": false,
+  "cmake.configureOnEdit": false,
+  "cmake.cmakePath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe",
+  // `Ninja` is much more faster than `Visual Studio`
+  "cmake.generator": "Ninja",
+  "files.exclude": {
+    "vcpkg": true
+  }
+}

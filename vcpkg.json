@@ -12,13 +12,10 @@
             "platform": "windows & x64"
         },
         {
-            "name": "opencv",
-            "version>=": "4.5.1",
-            "default-features": true,
-            "features": [
-                "cuda"
-            ],
-            "platform": "windows & x64"
+          "name": "qt5",
+          "version>=": "5.15.2",
+          "default-features": true,
+          "platform": "windows & x64"
         }
     ]
 }
